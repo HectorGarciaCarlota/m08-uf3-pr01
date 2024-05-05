@@ -8,85 +8,65 @@
 import SwiftUI
 
 struct GameView: View {
-    @State private var correctAnswer = 0
-    @State private var choiceArray = [ 0, 1, 2, 3 ]
-    @State private var firstNumber = 0
-    @State private var secondNumber = 0
-    @State private var difficulty = 100 // Gotta remove this -4º
-    @State private var score = 0
-    @State private var loseGame = false
+    @ObservedObject var game: Game
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        // VStack(alignment: .leading) {
-        VStack {
-            Text("Current score: \(self.score)")
-                .font(.headline)
+        VStack(spacing: 30){
+            Text("Current score: \(game.score)")
+                .font(.custom("Poppins-SemiBold", size: 24))
+                .frame(width: 360, alignment: .topLeading)
+            
+            Text(formatTime(seconds: game.timeRemaining))
+                            .font(.custom("Poppins-SemiBold", size: 32))
+                            .foregroundColor(.black)
+                            .frame(height: 20)
+            
+            
+            Text("\(game.firstNumber) \(game.operationSymbol) \(game.secondNumber)")
+                .font(.custom("Poppins-Bold", size: 48))
                 .bold()
+                .padding(.top, 60)
             
-            Spacer()
             
-            Text("\(firstNumber) + \(secondNumber)")
-                .font(.largeTitle)
-                .bold()
-            
-            HStack {
-                ForEach(0..<2) { i in
-                    Button {
-                        optionIsCorrect(option: choiceArray[i])
-                        generateOptions()
-                    } label: {
-                        OptionButton(number: choiceArray[i])
+            VStack(spacing: 20) {
+                HStack {
+                    ForEach(0..<2, id: \.self) { i in
+                        Button {
+                            game.optionIsCorrect(option: game.choiceArray[i])
+                        } label: {
+                            OptionButton(number: game.choiceArray[i])
+                        }
+                    }
+                }
+                
+                HStack {
+                    ForEach(2..<4, id: \.self) { i in
+                        Button {
+                            game.optionIsCorrect(option: game.choiceArray[i])
+                        } label: {
+                            OptionButton(number: game.choiceArray[i])
+                        }
                     }
                 }
             }
-            
-            HStack {
-                ForEach(2..<4) { i in
-                    Button {
-                        optionIsCorrect(option: choiceArray[i])
-                        generateOptions()
-                    } label: {
-                        OptionButton(number: choiceArray[i])
-                    }
-                }
-            }
-            
             Spacer()
-        }.alert(isPresented: $loseGame, content: {
-            Alert(title: Text("Loser!"), message: Text("You have lost this game, your score is: \(self.score)"), dismissButton: .default(Text("OK")))
+        }.alert(isPresented: $game.loseGame, content: {
+            Alert(title: Text("Loser!"), message: Text("You have lost this game, your score is: \(game.score)"), dismissButton: .default(Text("OK"), action: {
+                presentationMode.wrappedValue.dismiss()
+            }))
         })
     }
     
-    func optionIsCorrect(option: Int) {
-        // self.score = option == correctAnswer ? self.score + 1 : self.score - 1
-        
-        if option == correctAnswer {
-            self.score += 1
-        } else {
-            self.loseGame = true
+    func formatTime(seconds: Int) -> String {
+            let minutes = seconds / 60
+            let seconds = seconds % 60
+            return String(format: "%02d:%02d", minutes, seconds)
         }
-    }
-    
-    func generateOptions() {
-        firstNumber = Int.random(in: 0...(difficulty / 2))
-        secondNumber = Int.random(in: 0...(difficulty / 2))
-        
-        var optionsList = [Int]()
-        
-        correctAnswer = firstNumber + secondNumber
-        
-        for _ in 0...2 {
-            optionsList.append(Int.random(in: 0...difficulty))
-        }
-        
-        optionsList.append(correctAnswer)
-        
-        choiceArray = optionsList.shuffled()
-    }
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(game: Game(difficulty: .beginner))
     }
 }

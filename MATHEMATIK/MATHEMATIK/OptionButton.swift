@@ -13,9 +13,18 @@ struct OptionButton: View {
     var body: some View {
         Text("\(number)")
             .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .font(.system(size: 40, weight: .bold))
-            .foregroundColor(Color.white)
-            .background(Color.blue)
+            .font(.custom("Poppins-Bold", size: 30))
+            .foregroundColor(Color.black)
+            .background(
+                LinearGradient(
+                stops: [
+                Gradient.Stop(color: Color(red: 0.39, green: 0.71, blue: 1).opacity(0.5), location: 0.85),
+                Gradient.Stop(color: Color(red: 0.05, green: 0.34, blue: 0.6).opacity(0.5), location: 1.00),
+                ],
+                startPoint: UnitPoint(x: 3.03, y: -0.74),
+                endPoint: UnitPoint(x: 0.5, y: 1)
+                )
+                )
             .clipShape(Circle())
             .padding()
     }

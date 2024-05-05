@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB33FE2F2BE80374005A93EE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33FE2E2BE80374005A93EE /* Game.swift */; };
+		EB33FE322BE830C3005A93EE /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33FE312BE830C3005A93EE /* GameStore.swift */; };
 		EFD44AA82BD94EB30017558A /* MATHEMATIKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD44AA72BD94EB30017558A /* MATHEMATIKApp.swift */; };
 		EFD44AAA2BD94EB30017558A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD44AA92BD94EB30017558A /* ContentView.swift */; };
 		EFD44AAC2BD94EB50017558A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD44AAB2BD94EB50017558A /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB33FE2E2BE80374005A93EE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EB33FE312BE830C3005A93EE /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		EFD44AA42BD94EB30017558A /* MATHEMATIK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MATHEMATIK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD44AA72BD94EB30017558A /* MATHEMATIKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MATHEMATIKApp.swift; sourceTree = "<group>"; };
 		EFD44AA92BD94EB30017558A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				EFD44AAD2BD94EB50017558A /* Preview Content */,
 				EFD44AB72BD951150017558A /* GameView.swift */,
 				EFD44ABA2BD952170017558A /* OptionButton.swift */,
+				EB33FE2E2BE80374005A93EE /* Game.swift */,
+				EB33FE312BE830C3005A93EE /* GameStore.swift */,
 			);
 			path = MATHEMATIK;
 			sourceTree = "<group>";
@@ -225,6 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD44AAA2BD94EB30017558A /* ContentView.swift in Sources */,
+				EB33FE322BE830C3005A93EE /* GameStore.swift in Sources */,
+				EB33FE2F2BE80374005A93EE /* Game.swift in Sources */,
 				EFD44AB82BD951150017558A /* GameView.swift in Sources */,
 				EFD44ABB2BD952170017558A /* OptionButton.swift in Sources */,
 				EFD44AA82BD94EB30017558A /* MATHEMATIKApp.swift in Sources */,
@@ -359,12 +367,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MATHEMATIK/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MATHEMATIK/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aleixroldangarcia.MATHEMATIK;
+				PRODUCT_BUNDLE_IDENTIFIER = hectorgarcia.MATHEMATIK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -380,12 +389,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MATHEMATIK/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MATHEMATIK/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aleixroldangarcia.MATHEMATIK;
+				PRODUCT_BUNDLE_IDENTIFIER = hectorgarcia.MATHEMATIK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
