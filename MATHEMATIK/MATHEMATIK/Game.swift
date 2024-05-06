@@ -14,14 +14,14 @@ enum Difficulty: Identifiable {
     var id: Self { self }
 }
 
-class Game: ObservableObject {
-    @Published var score = 0
-    @Published var firstNumber = 0
-    @Published var secondNumber = 0
-    @Published var choiceArray = [Int]()
-    @Published var loseGame = false
-    @Published var operationSymbol: String = "+"
-    @Published var timeRemaining = 180
+class Game {
+    var score = 0
+    var firstNumber = 0
+    var secondNumber = 0
+    var choiceArray = [Int]()
+    var loseGame = false
+    var operationSymbol: String = "+"
+    var timeRemaining = 180
     var correctAnswer = 0
     var difficulty: Difficulty
     var timer: AnyCancellable?
@@ -56,9 +56,9 @@ class Game: ObservableObject {
         let operations: [(Int, Int) -> (Int, String)]
         switch difficulty {
         case .beginner:
-            operations = [add, subtract, multiply]
+            operations = score >= 50 ? [add, subtract, multiply] : [add, subtract]
         case .intermediate:
-            operations = [add, subtract, multiply, divide]
+            operations = score >= 50 ? [add, subtract, multiply, divide, exponentiate] : [add, subtract, multiply]
         }
         return operations.randomElement() ?? add
     }
@@ -83,7 +83,10 @@ class Game: ObservableObject {
     func divide(_ a: Int, _ b: Int) -> (Int, String) {
         return (b != 0 ? a / b : add(a, b).0, "/")
     }
-
+    func exponentiate(_ a: Int, _ b: Int) -> (Int, String) {
+        let result = Int(pow(Double(a), Double(b)))
+        return (result, "^")
+    }
 
     func optionIsCorrect(option: Int) {
         if option == correctAnswer {

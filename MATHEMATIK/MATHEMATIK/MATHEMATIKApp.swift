@@ -15,3 +15,5 @@ struct MATHEMATIKApp: App {
         }
     }
 }
+
+//TODO: PUBLISH GAMESTORE AS ENVIROMENT OBJECT

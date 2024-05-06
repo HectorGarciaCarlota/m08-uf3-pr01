@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("Welcome to mathematiks, challenge yourself")
                     .font(.custom("Poppins-SemiBold", size: 30))
                     .padding()
-            .frame(width: 360, alignment: .topLeading)
+                    .frame(width: geometry.size.width, alignment: .topLeading)
             
                 
                 Text("Choose a difficulty")
@@ -34,7 +34,7 @@ struct ContentView: View {
                         .padding(.vertical, 12)
                         .background(
                             LinearGradient(
-                                gradient: Gradient(stops: [
+                                gradient: Gradient(	stops: [
                                     Gradient.Stop(color: Color(red: 0.23, green: 0.42, blue: 0.6).opacity(0.2), location: 0.0),
                                     Gradient.Stop(color: Color(red: 0.39, green: 0.71, blue: 1).opacity(0.2), location: 1.0)
                                 ]),
