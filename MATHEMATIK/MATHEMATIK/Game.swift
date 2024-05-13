@@ -14,61 +14,82 @@ enum Difficulty: Identifiable {
     var id: Self { self }
 }
 
-class Game {
+struct Game {
     var score = 0
     var firstNumber = 0
     var secondNumber = 0
-    var choiceArray = [Int]()
-    var loseGame = false
-    var operationSymbol: String = "+"
     var timeRemaining = 180
+    var loseGame = false
+    var choiceArray = [Int]()
+    var operationSymbol: String = "+"
     var correctAnswer = 0
     var difficulty: Difficulty
-    var timer: AnyCancellable?
+
 
     init(difficulty: Difficulty) {
         self.difficulty = difficulty
         generateOptions()
-        startTimer()
+    }
+    
+    init() {
+        self.difficulty = .beginner
     }
     
 
-    func generateOptions() {
+   /* mutating func generateOptions() {
         let operation = selectOperation()
-        (firstNumber, secondNumber, correctAnswer) = performOperation(using: operation)
+        (self.firstNumber, self.secondNumber, self.correctAnswer) = performOperation(using: operation)
 
-        var optionsList = [correctAnswer]
+        var optionsList = [self.correctAnswer]
 
         while optionsList.count < 4 {
-            let adjustment = Int(Double(correctAnswer) * (Double.random(in: 0.05...0.10)))
-            let adjustedOption = correctAnswer + (Bool.random() ? adjustment : -adjustment)
+            let adjustment = Int.random(in: 1...10)
+            let adjustedOption = self.correctAnswer + (Bool.random() ? adjustment : -adjustment)
 
             if !optionsList.contains(adjustedOption) {
                 optionsList.append(adjustedOption)
             }
         }
-        choiceArray = optionsList.shuffled()
+        self.choiceArray = optionsList.shuffled()
+    }
+    */
+
+    mutating func generateOptions() {
+        let operation = selectOperation()
+        (self.firstNumber, self.secondNumber, self.correctAnswer) = performOperation(using: operation)
+
+        var optionsList = Set<Int>()
+        optionsList.insert(self.correctAnswer)
+
+        while optionsList.count < 4 {
+            let adjustment = Int.random(in: 1...10)
+            let adjustedOption = self.correctAnswer + (Bool.random() ? adjustment : -adjustment)
+            optionsList.insert(adjustedOption)
+        }
+        self.choiceArray = Array(optionsList).shuffled()
     }
 
 
 
     func selectOperation() -> ((Int, Int) -> (Int, String)) {
         let operations: [(Int, Int) -> (Int, String)]
+        
         switch difficulty {
-        case .beginner:
-            operations = score >= 50 ? [add, subtract, multiply] : [add, subtract]
-        case .intermediate:
-            operations = score >= 50 ? [add, subtract, multiply, divide, exponentiate] : [add, subtract, multiply]
+            case .beginner:
+                operations = [add, subtract, multiply]
+            case .intermediate:
+                operations = [add, subtract, multiply, divide]
         }
+        
         return operations.randomElement() ?? add
     }
 
-    func performOperation(using operation: (Int, Int) -> (Int, String)) -> (Int, Int, Int) {
-        firstNumber = Int.random(in: 0...100)
-        secondNumber = Int.random(in: 0...100)
-        let (result, symbol) = operation(firstNumber, secondNumber)
+    mutating func performOperation(using operation: (Int, Int) -> (Int, String)) -> (Int, Int, Int) {
+        self.firstNumber = Int.random(in: 1...100)
+        self.secondNumber = Int.random(in: 1...100)
+        let (result, symbol) = operation(self.firstNumber, self.secondNumber)
         operationSymbol = symbol
-        return (firstNumber, secondNumber, result)
+        return (self.firstNumber, self.secondNumber, result)
     }
 
     func add(_ a: Int, _ b: Int) -> (Int, String) {
@@ -83,43 +104,21 @@ class Game {
     func divide(_ a: Int, _ b: Int) -> (Int, String) {
         return (b != 0 ? a / b : add(a, b).0, "/")
     }
-    func exponentiate(_ a: Int, _ b: Int) -> (Int, String) {
-        let result = Int(pow(Double(a), Double(b)))
-        return (result, "^")
-    }
+        
 
-    func optionIsCorrect(option: Int) {
-        if option == correctAnswer {
-            score += 1
-            generateOptions()
+    mutating func optionIsCorrect(option: Int) {
+        if option == self.correctAnswer {
+            self.score += 1
+            print("Score updated to \(self.score)")
+            self.generateOptions()
+            self.timeRemaining += 5
         } else {
-            loseGame = true
-            stopTimer()
+            self.loseGame = true
         }
     }
 
-    func startTimer() {
-        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink { [weak self] _ in
-            self?.tick()
-        }
-    }
 
-    func stopTimer() {
-        timer?.cancel()
-    }
-
-    func tick() {
-        if timeRemaining > 0 {
-            timeRemaining -= 1
-        } else {
-            loseGame = true
-            stopTimer()
-        }
-    }
-
-    deinit {
-        stopTimer()
-    }
+   
 }
 
 

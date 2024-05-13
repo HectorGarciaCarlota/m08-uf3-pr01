@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct MATHEMATIKApp: App {
+    @StateObject var viewModel = GameStore()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(viewModel)
         }
     }
 }
-
-//TODO: PUBLISH GAMESTORE AS ENVIROMENT OBJECT
