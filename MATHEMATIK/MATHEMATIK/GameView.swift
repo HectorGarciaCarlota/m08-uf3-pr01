@@ -58,6 +58,7 @@ struct GameView: View {
                 title: Text("You Lose!"),
                 message: Text("Better luck next time."),
                 dismissButton: .default(Text("OK"), action: {
+                    viewModel.saveGame()
                     presentationMode.wrappedValue.dismiss()
                     viewModel.isShowingGameView = false
                 })

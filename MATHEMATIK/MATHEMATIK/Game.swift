@@ -19,6 +19,7 @@ struct Game {
     var firstNumber = 0
     var secondNumber = 0
     var timeRemaining = 180
+    var totalTime = 0
     var loseGame = false
     var choiceArray = [Int]()
     var operationSymbol: String = "+"
@@ -111,7 +112,9 @@ struct Game {
             self.score += 1
             print("Score updated to \(self.score)")
             self.generateOptions()
-            self.timeRemaining += 5
+            if self.timeRemaining < 180 {
+                self.timeRemaining += 5
+            }
         } else {
             self.loseGame = true
         }

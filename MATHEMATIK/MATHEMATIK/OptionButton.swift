@@ -13,7 +13,7 @@ struct OptionButton: View {
     var body: some View {
         Text("\(number)")
             .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .font(.custom("Poppins-Bold", size: 30))
+            .font(.custom("Poppins-Bold", size: 20)) // i think that with 20 should be enough to not cut numbers...
             .foregroundColor(Color.black)
             .background(
                 LinearGradient(

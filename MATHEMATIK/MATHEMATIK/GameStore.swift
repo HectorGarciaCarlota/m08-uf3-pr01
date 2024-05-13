@@ -13,6 +13,11 @@ class GameStore: ObservableObject {
     @Published var isShowingGameView = false
     @Published var game = Game()
     var timer: AnyCancellable?
+    let coreDataViewModel: CoreDataViewModel
+        
+        init(coreDataViewModel: CoreDataViewModel) {
+            self.coreDataViewModel = coreDataViewModel
+        }
     
     func selectDifficulty(_ difficulty: Difficulty) {
         selectedDifficulty = difficulty
@@ -24,9 +29,13 @@ class GameStore: ObservableObject {
     func startTimer() {
         self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink() {_ in 
             self.tick()
+            self.tickAsc()
         }
     }
 
+    func saveGame() {
+        coreDataViewModel.saveGameScore(score: Int32(game.score), timeRemaining: Int32(game.totalTime))
+        }
 
     func stopTimer() {
         self.timer?.cancel()
@@ -38,6 +47,12 @@ class GameStore: ObservableObject {
         } else {
             self.game.loseGame = true
             self.stopTimer()
+        }
+    }
+    
+    func tickAsc() {
+        if self.game.loseGame == false {
+            self.game.totalTime += 1
         }
     }
 }

@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		EB33FE2F2BE80374005A93EE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33FE2E2BE80374005A93EE /* Game.swift */; };
 		EB33FE322BE830C3005A93EE /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33FE312BE830C3005A93EE /* GameStore.swift */; };
+		EBA6E2152BF2A943005CABA5 /* GameScoress.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBA6E2132BF2A943005CABA5 /* GameScoress.xcdatamodeld */; };
+		EBA6E2202BF2AF5E005CABA5 /* OwO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA6E21E2BF2AF5E005CABA5 /* OwO+CoreDataClass.swift */; };
+		EBA6E2212BF2AF5E005CABA5 /* OwO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA6E21F2BF2AF5E005CABA5 /* OwO+CoreDataProperties.swift */; };
+		EBD917892BF299F700048204 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD917882BF299F700048204 /* PersistenceController.swift */; };
 		EFD44AA82BD94EB30017558A /* MATHEMATIKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD44AA72BD94EB30017558A /* MATHEMATIKApp.swift */; };
 		EFD44AAA2BD94EB30017558A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD44AA92BD94EB30017558A /* ContentView.swift */; };
 		EFD44AAC2BD94EB50017558A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD44AAB2BD94EB50017558A /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 /* Begin PBXFileReference section */
 		EB33FE2E2BE80374005A93EE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EB33FE312BE830C3005A93EE /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		EBA6E2142BF2A943005CABA5 /* GameScoress.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameScoress.xcdatamodel; sourceTree = "<group>"; };
+		EBA6E21E2BF2AF5E005CABA5 /* OwO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OwO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EBA6E21F2BF2AF5E005CABA5 /* OwO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OwO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EBD917882BF299F700048204 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		EFD44AA42BD94EB30017558A /* MATHEMATIK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MATHEMATIK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD44AA72BD94EB30017558A /* MATHEMATIKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MATHEMATIKApp.swift; sourceTree = "<group>"; };
 		EFD44AA92BD94EB30017558A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +88,8 @@
 		EFD44A9B2BD94EB30017558A = {
 			isa = PBXGroup;
 			children = (
+				EBA6E21E2BF2AF5E005CABA5 /* OwO+CoreDataClass.swift */,
+				EBA6E21F2BF2AF5E005CABA5 /* OwO+CoreDataProperties.swift */,
 				EFD44AA62BD94EB30017558A /* MATHEMATIK */,
 				EFD44AA52BD94EB30017558A /* Products */,
 			);
@@ -106,6 +116,8 @@
 				EFD44ABA2BD952170017558A /* OptionButton.swift */,
 				EB33FE2E2BE80374005A93EE /* Game.swift */,
 				EB33FE312BE830C3005A93EE /* GameStore.swift */,
+				EBD917882BF299F700048204 /* PersistenceController.swift */,
+				EBA6E2132BF2A943005CABA5 /* GameScoress.xcdatamodeld */,
 			);
 			path = MATHEMATIK;
 			sourceTree = "<group>";
@@ -169,8 +181,9 @@
 		EFD44A9C2BD94EB30017558A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					EFD44AA32BD94EB30017558A = {
 						CreatedOnToolsVersion = 12.4;
@@ -231,8 +244,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD44AAA2BD94EB30017558A /* ContentView.swift in Sources */,
+				EBD917892BF299F700048204 /* PersistenceController.swift in Sources */,
+				EBA6E2202BF2AF5E005CABA5 /* OwO+CoreDataClass.swift in Sources */,
 				EB33FE322BE830C3005A93EE /* GameStore.swift in Sources */,
 				EB33FE2F2BE80374005A93EE /* Game.swift in Sources */,
+				EBA6E2212BF2AF5E005CABA5 /* OwO+CoreDataProperties.swift in Sources */,
+				EBA6E2152BF2A943005CABA5 /* GameScoress.xcdatamodeld in Sources */,
 				EFD44AB82BD951150017558A /* GameView.swift in Sources */,
 				EFD44ABB2BD952170017558A /* OptionButton.swift in Sources */,
 				EFD44AA82BD94EB30017558A /* MATHEMATIKApp.swift in Sources */,
@@ -279,6 +296,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -340,6 +358,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -424,6 +443,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBA6E2132BF2A943005CABA5 /* GameScoress.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBA6E2142BF2A943005CABA5 /* GameScoress.xcdatamodel */,
+			);
+			currentVersion = EBA6E2142BF2A943005CABA5 /* GameScoress.xcdatamodel */;
+			path = GameScoress.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFD44A9C2BD94EB30017558A /* Project object */;
 }

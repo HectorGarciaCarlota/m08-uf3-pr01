@@ -24,16 +24,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "63287A3E-8246-4212-87CB-8899BFE3FA3D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MATHEMATIK/GameStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "tick()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63287A3E-8246-4212-87CB-8899BFE3FA3D - d9eb1af46a5bfe96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MATHEMATIK.GameStore.tick() -&gt; ()"
+                  moduleName = "MATHEMATIK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedro/Downloads/m08-uf3-pr01-main%202/MATHEMATIK/MATHEMATIK/GameStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "275">
+               </Location>
+               <Location
+                  uuid = "63287A3E-8246-4212-87CB-8899BFE3FA3D - d9eb1af46a5bfef5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MATHEMATIK.GameStore.tick() -&gt; ()"
+                  moduleName = "MATHEMATIK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedro/Downloads/m08-uf3-pr01-main%202/MATHEMATIK/MATHEMATIK/GameStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "265">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +78,10 @@
             filePath = "MATHEMATIK/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "generateOptions()"
-            landmarkType = "7">
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "Game"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +94,10 @@
             filePath = "MATHEMATIK/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "generateOptions()"
-            landmarkType = "7">
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "Game"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

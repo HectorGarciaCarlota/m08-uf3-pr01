@@ -9,10 +9,20 @@ import SwiftUI
 
 @main
 struct MATHEMATIKApp: App {
-    @StateObject var viewModel = GameStore()
+//    @StateObject private var coreDataViewModel = CoreDataViewModel()
+    @StateObject private var gameStore: GameStore
+
+    init() {
+        let coreDataViewModel = CoreDataViewModel()
+        _gameStore = StateObject(wrappedValue: GameStore(coreDataViewModel: coreDataViewModel))
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(viewModel)
+            ContentView()
+                .environmentObject(gameStore)
+//                .environmentObject(coreDataViewModel)
         }
     }
 }
+
